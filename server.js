@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer'); // Multer 是一个 node.js 中间件，用于处理 multipart/form-data 类型的表单数据，它主要用于上传文件
 const console = require('tracer').colorConsole(); // 增强console
+const fs = require('fs'); // 文件模块
 
 // 服务实例
 const app = express();
@@ -8,12 +9,20 @@ const app = express();
 // 设置静态资源目录
 app.use(express.static('public'));
 
+// 上传文件保存目录
+const uploadFileSavePath = './uploads';
+// 判断文件夹是否存在
+if (!fs.existsSync(uploadFileSavePath)) {
+    // 不存在则创建
+    fs.mkdirSync(uploadFileSavePath);
+};
+
 // 设置上传文件参数
 const upload = multer({
     storage: multer.diskStorage({
         // 设置上传文件目录
         destination: function (req, file, cb) {
-            cb(null, './uploads')
+            cb(null, uploadFileSavePath)
         },
         // 设置保存时的文件名
         filename: function (req, file, cb) {
