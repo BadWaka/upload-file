@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>异步上传文件</title>
+</head>
+
+<body>
+    <h1>异步上传文件</h1>
+    <form id="upload-form" method="post" enctype="multipart/form-data">
+        <input type="file" id="upload" name="upload" />
+        <br>
+        <br>
+        <input type="submit" value="上传" />
+    </form>
+</body>
+<script>
+    window.onload = function () {
+        // var uploadFileInput = document.querySelector('#uploadFileInput');
+
+        // // 监听文件上传 input 表单 onchange 事件
+        // uploadFileInput.addEventListener('change', function (e) {
+        //     console.log('change', e);
+
+        //     // 拿到文件路径 C:\fakepath\gamersky_06origin_11_201781920558FE.jpg
+        //     var path = e.currentTarget.value;
+        //     console.log('path', path);
+
+        //     // 拿到文件列表
+        //     var fileList = e.currentTarget.files;
+        //     console.log('fileList', fileList);
+        //     if (!fileList || !fileList[0]) {
+        //         console.error('fileList 中没有文件!');
+        //         return;
+        //     }
+
+        //     // 使用 FileReader 读取文件
+        //     var fileReader = new FileReader();
+        //     fileReader.addEventListener('load', function () {
+        //         // 在这里拿到文件数据 是特别特别长的一个 base64 字符串
+        //         var fileData = fileReader.result;
+        //         // console.log('fileData', fileData);
+        //     });
+        //     fileReader.readAsDataURL(fileList[0]);
+        // });
+    };
+</script>
+
+</html>
