@@ -28,10 +28,10 @@ npm i
 node server.js
 ```
 
-- 在浏览器打开 http://localhost:3000/sync.html 即可看到同步上传页面
+- 在浏览器打开 http://localhost:12345/sync.html 即可看到同步上传页面
 ![](http://upload-images.jianshu.io/upload_images/1828354-d3191fe39b6c057b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-- 在浏览器打开 http://localhost:3000/async.html 即可看到异步上传页面
+- 在浏览器打开 http://localhost:12345/async.html 即可看到异步上传页面
 ![](http://upload-images.jianshu.io/upload_images/1828354-a83074582d3c2f7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - 选择文件后点击上传即可看到效果，在代码仓库的 uploads 目录下即可看到所上传的文件
