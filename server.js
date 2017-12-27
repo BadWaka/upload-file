@@ -3,8 +3,8 @@ const multer = require('multer'); // Multer 是一个 node.js 中间件，用于
 const console = require('tracer').colorConsole(); // 增强console
 const fs = require('fs'); // 文件模块
 
-// 服务实例
-const app = express();
+const app = express(); // 服务实例
+const port = 12345; // 端口
 
 // 设置静态资源目录
 app.use(express.static('public'));
@@ -50,7 +50,7 @@ app.post('/uploadfile', (req, res, next) => {
 });
 
 // 启动服务
-const server = app.listen(3000, () => {
+const server = app.listen(port, () => {
     const host = server
         .address()
         .address;
