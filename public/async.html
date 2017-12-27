@@ -61,8 +61,10 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     console.log('上传成功');　　　　
+                    alert('上传成功');
                 } else {　　　　　　
-                    console.error('出错了');　　　　
+                    console.error('出错了');　
+                    alert('出错了');　　　
                 }
             };
             // 进度条回调
