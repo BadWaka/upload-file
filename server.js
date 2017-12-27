@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static('public'));
 
 // 上传文件保存目录
-const uploadFileSavePath = './uploads';
+const uploadFileSavePath = './public/uploads';
 // 判断文件夹是否存在
 if (!fs.existsSync(uploadFileSavePath)) {
     // 不存在则创建
