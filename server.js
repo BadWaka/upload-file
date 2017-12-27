@@ -46,7 +46,7 @@ app.post('/uploadfile', (req, res, next) => {
         }
         // 上传完成
         console.info('上传完成');
-        res.send('上传完成');
+        res.send('上传完成<br><a href="/uploads">点这里查看服务器上传文件列表</a>');
     })
 });
 
