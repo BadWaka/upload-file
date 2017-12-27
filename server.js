@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer'); // Multer 是一个 node.js 中间件，用于处理 multipart/form-data 类型的表单数据，它主要用于上传文件
 const console = require('tracer').colorConsole(); // 增强console
 const fs = require('fs'); // 文件模块
+const path = require('path'); // 路径模块
 
 const app = express(); // 服务实例
 const port = 12345; // 端口
@@ -47,6 +48,30 @@ app.post('/uploadfile', (req, res, next) => {
         console.info('上传完成');
         res.send('上传完成');
     })
+});
+
+/**
+ * 遍历文件目录
+ * @param {*} dirPath
+ */
+const walk = (dirPath) => {
+    const fileList = []; // 最后要返回的文件路径列表
+    const dirList = fs.readdirSync(path.resolve(dirPath)); // 文件路径列表（可能包含文件夹）
+    console.log('dirList', dirList);
+    dirList.forEach((item, index) => {
+        // 判断如果是文件夹
+        if (fs.statSync(dirPath + '/' + item).isDirectory()) {
+            walk(dirPath + '/' + item);
+        } else {
+            fileList.push(dirPath + '/' + item);
+        }
+    });
+    return fileList;
+};
+// 上传文件列表接口
+app.get('/uploads', (req, res) => {
+    const fileList = walk(uploadFileSavePath);
+    res.send(fileList);
 });
 
 // 启动服务
